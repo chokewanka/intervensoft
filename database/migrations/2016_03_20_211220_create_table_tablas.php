@@ -17,6 +17,7 @@ class CreateTableTablas extends Migration {
 			$table->integer('id',true,true);
 			$table->string('nombre',50);
 			$table->string('descripcion',100)->nullable();
+			$table->integer('id_modulo',false,true);
 			$table->boolean('fue_eliminado');
 			$table->string('observaciones',255)->nullable();
 		});
