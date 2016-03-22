@@ -12,7 +12,7 @@ class CreateTableTablas extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tablas', function(Blueprint $table)
+		Schema::table('tablas', function(Blueprint $table)
 		{
 			$table->integer('id',true,true);
 			$table->string('nombre',50);
@@ -30,7 +30,10 @@ class CreateTableTablas extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tablas');
+		Schema::table('tablas', function(Blueprint $table)
+		{
+			Schema::drop('tablas');
+		});
 	}
 
 }

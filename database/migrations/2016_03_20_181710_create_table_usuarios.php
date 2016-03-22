@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableColumnas extends Migration {
+class CreateTableUsuarios extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateTableColumnas extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('columnas', function(Blueprint $table)
+		Schema::create('usuarios', function(Blueprint $table)
 		{
-			$table->integer('id',true,true);
-			$table->string('nombre',50);
-			$table->string('descripcion',100)->nullable();
-			$table->integer('id_tabla',false,true)->nullable();
+			$table->integer('id_involucrado',false,true);
+			$table->string('nombre',100);
+			$table->binary('contrasena');
+			$table->integer('id_rol',false,true);
+			$table->bigInteger('op_estado',false,true);
 			$table->boolean('fue_eliminado');
 			$table->string('observaciones',255)->nullable();
 		});
@@ -30,7 +31,7 @@ class CreateTableColumnas extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('columnas');
+		Schema::drop('usuarios');
 	}
 
 }
